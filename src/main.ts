@@ -1,6 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-
+import i18n from './plugins/i18n';
 const app = createApp(App);
 
 // 注册全局自定义指令
@@ -11,4 +11,10 @@ app.directive('focus', {
         el.focus();
     } 
 });
+const i18nStrings = {
+    greeting: {
+        hi: 'Hello!',
+    }
+};
+app.use(i18n, i18nStrings);
 app.mount('#app');
