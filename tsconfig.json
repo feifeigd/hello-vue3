@@ -1,11 +1,14 @@
 {
   "compilerOptions": {
     "target": "esnext",
+    "useDefineForClassFields": true,
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
     "importHelpers": true,
     "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -15,6 +18,8 @@
     "types": [
       "webpack-env"
     ],
+    "noEmit": true,
+    "isolatedModules": true,
     "paths": {
       "@/*": [
         "src/*"
@@ -23,12 +28,13 @@
     "lib": [
       "esnext",
       "dom",
-      "dom.iterable",
+      "dom.Iterable",
       "scripthost"
     ]
   },
   "include": [
     "src/**/*.ts",
+    "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
@@ -36,5 +42,8 @@
   ],
   "exclude": [
     "node_modules"
+  ],
+  "references": [
+    {"path": "./tsconfig.node.json"}
   ]
 }
