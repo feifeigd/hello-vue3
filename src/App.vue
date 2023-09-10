@@ -4,10 +4,10 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { Component, Vue } from 'vue-facing-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 
-@Options({
+@Component({
   components: {
     HelloWorld,
   },
