@@ -11,7 +11,9 @@ import routes from '../routes';
 @Component({
 })
 class VLink extends Vue{
-    @Prop
+    @Prop({
+        default: "/",
+    })
     href!:string;
     
     go(){

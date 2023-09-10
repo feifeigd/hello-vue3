@@ -6,8 +6,10 @@
 </template>
 
 <script lang="ts">
-import {Vue} from 'vue-class-component'
-export default class extends Vue{
+import {toNative, Vue} from 'vue-facing-decorator'
+
+class Directive extends Vue{
     
 }
+export default toNative(Directive);
 </script>
