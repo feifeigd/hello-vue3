@@ -6,21 +6,22 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import { Component, toNative, Vue } from 'vue-facing-decorator';
 import VLink from '../components/VLink.vue';
 import routes from '../routes';
 
-@Options({
+@Component({
     components:{
         VLink,
     }
 })
-export default class extends Vue{
+class Main extends Vue{
     routes = routes;
     mounted(){
         console.log(routes);
     }
 }
+export default toNative(Main);
 </script>
 
 <style>

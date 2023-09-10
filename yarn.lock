@@ -6852,11 +6852,6 @@ vite@^4.4.9:
   optionalDependencies:
     fsevents "~2.3.2"
 
-vue-class-component@^8.0.0-0:
-  version "8.0.0-beta.3"
-  resolved "https://registry.npm.taobao.org/vue-class-component/download/vue-class-component-8.0.0-beta.3.tgz#eef38348fe914f391c034ec9b53457402dae5b7b"
-  integrity sha1-7vODSP6RTzkcA07JtTRXQC2uW3s=
-
 vue-eslint-parser@^9.1.1, vue-eslint-parser@^9.3.1:
   version "9.3.1"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-9.3.1.tgz#429955e041ae5371df5f9e37ebc29ba046496182"
@@ -6869,6 +6864,11 @@ vue-eslint-parser@^9.1.1, vue-eslint-parser@^9.3.1:
     esquery "^1.4.0"
     lodash "^4.17.21"
     semver "^7.3.6"
+
+vue-facing-decorator@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/vue-facing-decorator/-/vue-facing-decorator-3.0.2.tgz#1d9e457118f765497193c0d25744fe90fcdafea9"
+  integrity sha512-hwOWIblWLBovaCHkNvqp2XTmaVmY8ZE7JcnkwlH9GZz0ZETZyN/O3kmZSmNVnOcRVG/ZOFhVdiBivozhaZxInA==
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

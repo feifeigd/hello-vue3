@@ -5,14 +5,14 @@
 </template>
 
 <script lang="ts">
-import {Options, Vue} from 'vue-class-component';
+import {Component, toNative, Vue} from 'vue-facing-decorator';
 import routes from '../routes';
 
-@Options({
+@Component({
     props: ['href', ],
 })
-export default class extends Vue{
-    href!:string;
+class VLink extends Vue{
+    // href!:string;
     
     go(){
         console.log('go', this.href);
@@ -21,6 +21,7 @@ export default class extends Vue{
         window.history.pushState(null, routes[this.href], this.href);
     }
 }
+export default toNative(VLink);
 </script>
 
 <style>

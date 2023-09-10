@@ -5,17 +5,19 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+import {Component, toNative, Vue } from 'vue-facing-decorator';
 import MainLayout from '../layouts/Main.vue';
 
-@Options({
+@Component({
     components:{
         MainLayout,
     }
 })
-export default class extends Vue {
+class Home extends Vue {
 
 }
+export default toNative(Home);
+
 </script>
 
 <style>
