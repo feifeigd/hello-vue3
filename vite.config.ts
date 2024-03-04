@@ -7,5 +7,10 @@ export default defineConfig({
   build: {
     // 生成 manifest.json 
     manifest: true,
-  }
+  },
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
 });
