@@ -45,3 +45,12 @@ If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has a
 # 更新依赖库版本号
 npm install -g npm-check-updates
 ncu
+
+
+# vue 插件
+# 语言包
+
+# Pinia Vue 状态管理库 https://pinia.vuejs.org/zh/introduction.html
+
+# UI 组件，element-plus
+# 路由组件，vue-router

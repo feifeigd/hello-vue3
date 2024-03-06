@@ -26,4 +26,4 @@ export default toNative(Main);
 
 <style>
 
-</style>
+</style>../router/routes
