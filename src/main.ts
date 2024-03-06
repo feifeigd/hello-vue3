@@ -9,6 +9,10 @@ import { setupDirective } from "@/directive";
 import { setupStore } from "@/store";
 import router from "./router";
 
+// 样式
+import 'element-plus/theme-chalk/dark/css-vars.css';
+import "animate.css";
+
 const app = createApp(App);
 
 // 注册全局自定义指令

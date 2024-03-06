@@ -20,6 +20,16 @@ export default defineConfig(()=>{
       // 生成 manifest.json 
       manifest: true,
     },
+    
+    css: {
+      // css预处理器
+      preprocessorOptions: {
+        scss: {
+          additionalData: `@import "@/styles/variables.scss";`,
+          javascriptEnabled: true,
+        },
+      },
+    },
 
     // 插件
     plugins: [
