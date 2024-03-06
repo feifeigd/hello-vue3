@@ -59,11 +59,11 @@ export default defineConfig(()=>{
           ElementPlusResolver(),
           IconsResoler(),
         ],
-        // eslintrc: {
-        //   enabled: false,
-        //   filepath: "./eslintrc-auto-import.json",
-        //   globalsPropValue: true,
-        // },
+        eslintrc: {
+          enabled: false,
+          filepath: "./eslintrc-auto-import.json",  // 没有自动导入的话，写在这里即可导入
+          globalsPropValue: true,
+        },
         vueTemplate: true,
         dts: 'src/typings/auto-imports.d.ts',
         
