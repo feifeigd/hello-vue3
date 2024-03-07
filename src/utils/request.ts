@@ -16,7 +16,8 @@ const service = axios.create({
 
 // 请求拦截器
 service.interceptors.request.use(
-    (config) => {        
+    (config) => {  
+        console.log('config:', config);      
         // 在发送请求之前做些什么
         const accessToken = localStorage.getItem('token');
         if (accessToken) {
