@@ -6,18 +6,22 @@
     >
         <use :xlink:href="symbolId" :fill="color" />
     </svg>
-    svg icon
 </template>
 
 <script lang="ts">
 import { Prop } from 'vue-facing-decorator';
 
+/**
+ * svg图标组件
+ * vite-plugin-svg-icons 会将所有的svg文件转换为Vue组件，然后导出一个svg文件的数组，这样就可以在项目中直接使用svg图标了
+ */
 @Component
 class SvgIcon extends Vue {
     @Prop iconClass = "";
-    @Prop size = "1em";
-    @Prop color = "";
-    @Prop prefix = "icon";
+    @Prop({default: "1em"}) 
+    size = "1em";
+    @Prop({default: "pink"}) color = "";
+    @Prop({default: "icon"}) prefix = "icon";
 
     get symbolId() {
         return `#${this.prefix}-${this.iconClass}`;

@@ -14,10 +14,11 @@ const Layout = () => import('@/layout/index.vue');
  * @returns 
  */
 function hasPermission(roles: string[], route: RouteRecordRaw) {
-    if(route.meta?.roles){
+    const route_roles = route?.meta?.roles;
+    if(route_roles){
         if(roles.includes("ROOT"))
             return true;
-        return roles.some(role => route.meta.roles.includes(role));
+        return roles.some(role => route_roles.includes(role));
     }
     return false;
 };
@@ -40,11 +41,9 @@ function filterAsyncRoutes(routes: RouteRecordRaw[], roles: string[]){
             if(tmpRoute.component?.toString() == "Layout"){
                 tmpRoute.component = Layout;
             }else {
-                const componentPath = tmpRoute.component as string;
+                const componentPath = `${tmpRoute.component}`;
                 const component = modules[`@/views${componentPath}.vue`];
-                if(component){
-                    tmpRoute.component = component;
-                }
+                tmpRoute.component = component || modules[`@/views/error-page/404.vue`];
             }
             
             if(tmpRoute.children){
