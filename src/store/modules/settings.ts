@@ -14,7 +14,6 @@ export const useSettingsStore = defineStore("settings", ()=>{
     // 是否显示标签视图
     const tagsView = useStorage<boolean>("tagsView", defaultSettings.tagsView);
 
-
     const theme = useStorage<string>("theme", defaultSettings.theme);
     const themeColor = useStorage<string>("themeColor", defaultSettings.themeColor);
     const watermarkEnabled = useStorage<boolean>("watermarkEnabled", defaultSettings.watermarkEnabled);

@@ -73,7 +73,7 @@ export const useAppStore = defineStore("app", ()=>{
 
     return {
         // state
-        activeTopMenuPath,
+        activeTopMenuPath,  // 当前激活的顶部菜单
         device,
         language,
         sidebar,
@@ -93,6 +93,7 @@ export const useAppStore = defineStore("app", ()=>{
     };
 });
 
+// 非 setup
 export function useAppStoreHook(){
     return useAppStore(store);
 }
