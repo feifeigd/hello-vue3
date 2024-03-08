@@ -9,6 +9,9 @@ import { setupDirective } from "@/directive";
 import { setupStore } from "@/store";
 import router from "./router";
 
+// 本地SVG图标
+import "virtual:svg-icons-register";
+
 // 样式
 import 'element-plus/theme-chalk/dark/css-vars.css';
 import "animate.css";

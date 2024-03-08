@@ -4,7 +4,7 @@
 	<el-watermark 
 		v-if="watermarkEnabled"
 		:font="{color: fontColor, fontSize: '20px'}"
-		:content="settings.watermarkContent"
+		:content="defaultSettings.watermarkContent"
 		class="wh-full" 
 	>
 		<router-view />
@@ -28,21 +28,27 @@ import defaultSettings from './settings';
   components: {
     HelloWorld,
   },
+  setup() {
+	return {
+		appStore: useAppStore(),	// store 实例化
+		settingsStore: useSettingsStore(),	// store 实例化
+	}
+  }
 })
 class App extends Vue {
 	// app.privode() 提供的值
 	// @Inject
 	// readonly i18n: any;
 
-	appStore: any;
-	settingsStore: any;
-	settings = defaultSettings;
+	appStore!: any;
+	settingsStore!: any;
+	get defaultSettings(){return defaultSettings;} 
 
 	// This is a vue component lifecycle hook.
-	beforeMount(){
+	mounted(){
 		// console.log("注入的值：", this.i18n);
-		this.appStore = useAppStore();	// store 实例化
-		this.settingsStore = useSettingsStore();	// store 实例化
+		// this.$i18n.locale = this.appStore.language;
+		console.log("i18n", this.$i18n);
 	}
 
 	get locale() {

@@ -18,13 +18,22 @@ import { useAppStore } from '@/store';
 import { ElMessage } from 'element-plus';
 import { Prop } from 'vue-facing-decorator';
 
-@Component
+@Component({
+    setup(){
+        const {locale} = useI18n(); // 只能在setup中调用
+
+        return {
+            locale, 
+        }
+    }
+})
 class LangSelect extends Vue {
     @Prop
     size!: string;  // 图标大小
 
     readonly appStore = useAppStore();
-    
+    locale!: any;   // setup 中注入
+
     // 语言列表
     langList = [
         {
@@ -41,6 +50,7 @@ class LangSelect extends Vue {
     handleLanguageChange(lang: string) {
         console.log('handleLanguageChange', lang);
         this.appStore.changeLanguage(lang);
+        this.locale = lang;  // 少这行，无法实现动态切换语言
         const msg = lang = "en" ? "Switch language success" : "切换语言成功";
         ElMessage.success(msg);
     }

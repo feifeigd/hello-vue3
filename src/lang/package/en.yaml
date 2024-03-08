@@ -1,0 +1,5 @@
+login:
+  captchaCode: Verify Code
+  login: Login
+  username: username
+  password: password

@@ -20,7 +20,7 @@ class SvgIcon extends Vue {
     @Prop iconClass = "";
     @Prop({default: "1em"}) 
     size = "1em";
-    @Prop({default: "pink"}) color = "";
+    @Prop({default: ""}) color = "";
     @Prop({default: "icon"}) prefix = "icon";
 
     get symbolId() {

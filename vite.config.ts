@@ -9,6 +9,7 @@ import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 import {ElementPlusResolver} from 'unplugin-vue-components/resolvers';
 import Icons from 'unplugin-icons/vite';
 import IconsResoler from 'unplugin-icons/resolver';
+import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
 
 import { resolve } from 'path';
 
@@ -91,11 +92,17 @@ export default defineConfig(({mode}: ConfigEnv)=>{
         // 指定生成的组件名
         symbolId: 'icon-[dir]-[name]',
       }),
+
       Icons({
         autoInstall: true,
         compiler: 'vue3',
       }),
       vue(),
+      VueI18nPlugin({
+        include: [resolve(pathSrc, 'lang/package/**/*.{json,yaml,yml}')],
+        
+        // jitCompilation: true,
+      })
     ],
 
     // 预加载项目必需的组件
