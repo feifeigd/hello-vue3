@@ -60,7 +60,8 @@
                     <el-form-item prop="password">
                         <div class="flex-y-center w-full">
                             <el-icon class="mx-2" name="lock" >
-                                <!-- <Lock /> -->
+                                <!-- @element-plus/icons-vue -->
+                                <Lock />
                             </el-icon>
                             <el-input
                                 ref="passwordRef"

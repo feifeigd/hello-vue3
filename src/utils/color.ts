@@ -12,12 +12,6 @@ type HSL = {
     l: number;  // [0, 1] 亮度 Lightness
 };
 
-type HSV = {
-    h: number;
-    s: number;
-    v: number;
-};
-
 type HEX = 
     | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
     | "A" | "B" | "C" | "D" | "E" | "F";
@@ -113,7 +107,7 @@ function rgb2hsl(rgb: RGB): HSL {
  */
 function hsl2rgb(hsl: HSL): RGB {
     const {h, s, l} = hsl
-    h /= 360;   // 色相转换为 [0, 1]
+    const hUnit = h / 360;   // 色相转换为 [0, 1]
 
     function hue2rgb(p: number, q: number, t: number) {
         // 保持 [0, 1] 环状取值
@@ -150,9 +144,9 @@ function hsl2rgb(hsl: HSL): RGB {
     } else {
         const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
         const p = 2 * l - q;
-        r = hue2rgb(p, q, h + 1 / 3);
-        g = hue2rgb(p, q, h);
-        b = hue2rgb(p, q, h - 1 / 3);
+        r = hue2rgb(p, q, hUnit + 1 / 3);
+        g = hue2rgb(p, q, hUnit);
+        b = hue2rgb(p, q, hUnit - 1 / 3);
     }
 
     return {
@@ -168,14 +162,17 @@ function hsl2rgb(hsl: HSL): RGB {
  * @returns 
  */
 function hex2rgb(hex: string): RGB {
-    if (hex.length !== 7 || !/^#[0-9A-F]{6}$/.test(hex)) {
+    hex = hex.toUpperCase();
+    const hexRegExp = /^#([0-9A-F]{6})$/;
+    if (hex.length !== 7 || !hexRegExp.test(hex)) {
         throw new Error(`Invalid HEX color: ${hex}`);
     }
 
-    hex = hex.toUpperCase();
-    const r = HEX_MAP[hex[1]] * 16 + HEX_MAP[hex[2]];
-    const g = HEX_MAP[hex[3]] * 16 + HEX_MAP[hex[4]];
-    const b = HEX_MAP[hex[5]] * 16 + HEX_MAP[hex[6]];
+    const hexValArr = hexRegExp.exec(hex)?.[1].split('') as Array<HEX>;
+
+    const r = HEX_MAP[hexValArr[0]] * 16 + HEX_MAP[hexValArr[1]];
+    const g = HEX_MAP[hexValArr[2]] * 16 + HEX_MAP[hexValArr[3]];
+    const b = HEX_MAP[hexValArr[4]] * 16 + HEX_MAP[hexValArr[5]];
 
     return {
         r,
