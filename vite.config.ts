@@ -10,7 +10,7 @@ import {ElementPlusResolver} from 'unplugin-vue-components/resolvers';
 import Icons from 'unplugin-icons/vite';
 import IconsResoler from 'unplugin-icons/resolver';
 import VueI18nPlugin from '@intlify/unplugin-vue-i18n/vite';
-
+import UnoCSS from 'unocss/vite';
 import { resolve } from 'path';
 
 const pathSrc = resolve(__dirname, "src");
@@ -31,7 +31,7 @@ export default defineConfig(({mode}: ConfigEnv)=>{
       // css预处理器
       preprocessorOptions: {
         scss: {
-          additionalData: `@import "@/styles/variables.scss";`,
+          additionalData: `@use "@/styles/variables.scss" as *;`,
           javascriptEnabled: true,
         },
       },
@@ -96,6 +96,9 @@ export default defineConfig(({mode}: ConfigEnv)=>{
       Icons({
         autoInstall: true,
         compiler: 'vue3',
+      }),
+      UnoCSS({
+        hmrTopLevelAwait: false,
       }),
       vue(),
       VueI18nPlugin({
