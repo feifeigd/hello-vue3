@@ -1,0 +1,26 @@
+@use "./reset.scss";
+
+.app-container {
+    padding: 10px;
+}
+
+.search-container {
+    background-color: var(--el-bg-color-overlay);
+    border: 1px solid var(--el-border-color-light);
+    box-shadow: var(--el-box-shadow-light);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 18px 0 0 10px;
+}
+
+.table-container > .el-card__header {
+    padding: calc(var(--el-card-padding) - 8px) var(--el-card-padding);
+}
+
+.link-type, .link-type:focus{
+    color: #337ab7;
+    cursor: pointer;
+    &:hover{
+        color: rgb(32 160 255);
+    }    
+}
