@@ -9,12 +9,10 @@ declare module 'vue-router' {
         title?: string;
         // 菜单图标
         icon?: string;
-        noCache: boolean;
         // 是否固定在 tagsView
         affix?: boolean;
         // 是否在面包屑上隐藏
         breadcrumb?: boolean;
-        activeMenu: string;
         // 是否隐藏
         hidden?: boolean;
         // 是否缓存页面
