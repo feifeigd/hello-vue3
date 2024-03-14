@@ -112,6 +112,7 @@ export default toNative(SidebarMenuItem);
             height: 0;
             overflow: hidden;
             visibility: hidden;
+            width: 0;
         }
     }
 
