@@ -93,7 +93,8 @@ export default toNative(SidebarMenuItem);
 
 </script>
 
-<style lang="scss" scoped>
+<!-- 这里不要写 scoped -->
+<style lang="scss" >
 .hideSidebar {
     .submenu-title-noDropdown {
         position: relative;
@@ -130,7 +131,7 @@ export default toNative(SidebarMenuItem);
         }
     }
 
-    .el-menu-collapse {
+    .el-menu--collapse {
         width: $sidebar-width-collapsed;
         .el-sub-menu{
             & > .el-sub-menu__title {
