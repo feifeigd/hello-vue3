@@ -8,7 +8,7 @@ import { RouteRecordRaw, createRouter, createWebHashHistory, createWebHistory } 
 const Layout = () => import("@/layout/index.vue");
 
 // 静态路由
-const routes: RouteRecordRaw[] = [
+export const constantRoutes: RouteRecordRaw[] = [
     {
         path: "/",
         name: "Home",
@@ -35,8 +35,8 @@ const routes: RouteRecordRaw[] = [
 const router = createRouter({
     // history: createWebHistory(),
     history: createWebHashHistory(),
-    routes,
-    scrollBehavior(to, from, savedPosition) {
+    routes: constantRoutes,
+    scrollBehavior(/*to, from, savedPosition*/) {
         // always scroll to top. 刷新时，滚动条位置还原到顶部
         return { left: 0, top: 0 };
     },

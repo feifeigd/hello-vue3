@@ -32,6 +32,7 @@ import { resolve } from 'path-browserify';
 import { Watch } from 'vue-facing-decorator';
 import { RouteRecordName, RouteRecordRaw } from 'vue-router';
 import {translateRouteTitle} from '@/utils/i18n';
+import { findOutermostParent } from '@/utils';
 
 const appStore = useAppStore();
 const permissionStore = usePermissionStore();
@@ -76,7 +77,7 @@ class TagsView extends Vue {
 
     againActiveTop(newName: string) {
         if(this.layout !== "mix")return;
-        const parent = this.findOutermostParent(permissionStore.routes, newName);
+        const parent = findOutermostParent(permissionStore.routes, newName);
         if(parent && appStore.activeTopMenu !== parent.path) {
             appStore.activeTopMenu = parent.path;
         }
@@ -192,36 +193,7 @@ class TagsView extends Vue {
         });
         return tags;
     }
-
-    // 找到最外层的父节点
-    findOutermostParent(tree: RouteRecordRaw[], findName: string) {
-        let parentMap: Record<RouteRecordName, RouteRecordRaw | null> = {};
-
-        function buildParentMap(node: RouteRecordRaw, parent: RouteRecordRaw | null) {
-            if(node.name) {
-                parentMap[node.name] = parent;
-            }
-            if(node.children) {
-                node.children.forEach((child: any) => {
-                    buildParentMap(child, node);
-                });
-            }
-        }
-
-        tree.forEach((node: RouteRecordRaw) => {
-            buildParentMap(node, null);
-        });
-        let currentNode = parentMap[findName];
-        while(currentNode) {
-            const node = parentMap[currentNode.name as string];
-            if(!node) {
-                return currentNode; // 找到最外层的父节点
-            }
-            currentNode = node;
-        }
-        return null;
-    }
-
+   
     handleScroll(e: WheelEvent) {
         console.log("handleScroll", e);
         this.closeContentMenu();
