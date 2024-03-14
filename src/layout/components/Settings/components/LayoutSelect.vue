@@ -97,16 +97,6 @@ export default toNative(LayoutSelect);
             background-color: #1b2a47;
             box-shadow: 0 0 1px #888;
         }
-        &::before {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 2px;
-            background-color: #fff;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-        }
     }
     &.is-active {
         border: 2px solid var(--el-color-primary);
